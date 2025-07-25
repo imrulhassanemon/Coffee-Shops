@@ -14,6 +14,7 @@ const Routes = createBrowserRouter  ([
       {
         path: '/',
         element: <Home></Home>,
+        loader: ()=> fetch('../../public/categories.json'),
         children:[
           
         ]
