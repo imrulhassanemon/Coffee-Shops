@@ -11,7 +11,7 @@ const Home = () => {
     console.log(categories);
 
   return (
-    <div className="text-center">
+    <div className="">
       {/* Heading */}
       <Banner></Banner>
       <Heading
