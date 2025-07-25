@@ -9,7 +9,7 @@ const MainLayout = () => {
             {/* This is navbar  */}
             <Navbar></Navbar>
             {/* This is the main content area */}
-            <div className='min-h-[calc(100vh-229px)] py-12 container px-12 mx-auto'>
+            <div className='min-h-[calc(100vh-229px)] py-12 container  mx-auto'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
