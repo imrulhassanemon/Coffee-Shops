@@ -25,7 +25,7 @@ const CoffeeCards = () => {
         <Card key={coffee.id} coffee={coffee}></Card>
       ))}
     </div>
-    <button className="btn btn-warning text-black mx-8 border border-red-500" onClick={()=> navigate('/coffees')}>View All</button>
+    <button className="btn btn-warning text-black mx-8 " onClick={()=> navigate('/coffees')}>View All</button>
     </>
   );
 };

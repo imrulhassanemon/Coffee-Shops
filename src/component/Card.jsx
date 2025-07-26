@@ -6,11 +6,11 @@ const Card = ({ coffee }) => {
     coffee || {};
   console.log(coffee);
   return (
-    <Link>
-      <div className="card bg-base-100 w-80 shadow-sm">
+    <Link className="card-link hover:scale-105  " to={`/coffee/${id}`}>
+      <div className="card  bg-base-100 shadow-sm">
         <figure>
           <img
-            className="h-48 w-full object-cover"
+            className=" h-72 rounded-2xl  object-cover"
             src={image}
             alt="Shoes"
           />

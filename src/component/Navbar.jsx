@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, Links } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar lg:px-12 fixed shadow-sm z-10 backdrop-blur-xl bg-white/30 bg-opacity-30 text-gray-900">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,17 +25,32 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 gap-2 w-52 p-2 shadow"
           >
-            <Link to={"/"} className="btn btn-warning">
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+            >
               Home
-            </Link>
-            <Link to={"/coffees"} className="btn">
-              Coffes
-            </Link>
-            <Link to={"/dashboard"} className="btn">
+            </NavLink>
+            <NavLink
+              to={"/coffees"}
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+            >
+              Coffees
+            </NavLink>
+            <NavLink
+              to={"/dashboard"}
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+            >
               Dashboard
-            </Link>
+            </NavLink>
           </ul>
         </div>
         <Link to={"/"} className="btn btn-ghost text-xl">
@@ -44,15 +59,30 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal gap-3 px-1">
-          <Link to={"/"} className="btn">
-            Home
-          </Link>
-          <Link to={"/coffees"} className="btn">
-            Coffes
-          </Link>
-          <Link to={"/dashboard"} className="btn">
-            Dashboard
-          </Link>
+          <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to={"/coffees"}
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+            >
+              Coffees
+            </NavLink>
+            <NavLink
+              to={"/dashboard"}
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+            >
+              Dashboard
+            </NavLink>
         </ul>
       </div>
     </div>
