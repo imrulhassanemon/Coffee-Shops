@@ -1,5 +1,7 @@
 // get all coffee from local storage 
 
+import toast from "react-hot-toast";
+
 const getCoffee = ()=>{
     const coffee = localStorage.getItem('fovoriteCoffee');
     return coffee ? JSON.parse(coffee) : [];
@@ -16,14 +18,14 @@ const addCoffee = (coffee)=>{
 
     const isExist = coffees.find(item => item.id == coffee.id)
     if(isExist){
-        alert('Coffee already exist in your favorite list')
+        toast.error('Coffee already exist in your favorite list')
         return;
     }
 
     coffees.push(coffee)
 
     localStorage.setItem('fovoriteCoffee', JSON.stringify(coffees));
-
+    toast.success('Coffee added to your favorite list')
 }
 
 
@@ -32,4 +34,4 @@ const addCoffee = (coffee)=>{
 
 // remove coffee from loacl storage 
 
-export  {addCoffee}
+export  {addCoffee, getCoffee}

@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
-import { addCoffee } from "../utils";
+import { addCoffee, getCoffee } from "../utils";
 
 const CoffeeDetails = () => {
   const { id } = useParams();
 
   const data = useLoaderData();
   const [singleCoffee, setSingleCoffee] = React.useState({});
+
+  const [ isFavorate, setIsFavorite]   = React.useState(false);
+
 
   const {
     image,
@@ -23,13 +26,24 @@ const CoffeeDetails = () => {
 
   const handelAddCoffee = (coffee)=>{
     addCoffee(coffee)
+    setIsFavorite(true);
   }
 
 
   useEffect(() => {
     const singleData = [...data].find((coffee) => coffee.id === parseInt(id));
     setSingleCoffee(singleData);
-  }, [data, id]);
+
+    const favorites = getCoffee();
+    const coffees = favorites.find(coffee => coffee.id == singleData.id)
+    if(coffees){
+        setIsFavorite(true);
+    }else{
+        setIsFavorite(false);
+    }
+
+
+  }, [data, id, setSingleCoffee, setIsFavorite]);
 
   return (
     <div>
@@ -82,7 +96,7 @@ const CoffeeDetails = () => {
               </ul>
             </div>
 
-            <button className="btn btn-warning text-black" onClick={()=> handelAddCoffee(singleCoffee)}>Get Started</button>
+            <button disabled={isFavorate} className="btn btn-warning text-black" onClick={()=> handelAddCoffee(singleCoffee)}>Get Started</button>
           </div>
         </div>
       </div>
