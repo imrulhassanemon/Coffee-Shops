@@ -34,4 +34,15 @@ const addCoffee = (coffee)=>{
 
 // remove coffee from loacl storage 
 
-export  {addCoffee, getCoffee}
+
+const removeItem = (id)=>{
+    const coffees = getCoffee()
+    const remainignCoffees = coffees.filter(coffee => coffee.id !=id)
+    localStorage.setItem("fovoriteCoffee", JSON.stringify(remainignCoffees))
+    toast.success('Coffee removed from your favorite list')
+}
+
+
+
+
+export  {addCoffee, getCoffee, removeItem}
