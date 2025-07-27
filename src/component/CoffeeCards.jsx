@@ -16,8 +16,6 @@ const CoffeeCards = () => {
     }
   }, [data, category]);
 
-  console.log(coffees)
-
   return (
     <>
     <div className="grid grid-cols-1 md:grid-cols-2 px-8 lg:grid-cols-3 md:gap-10 p-4">

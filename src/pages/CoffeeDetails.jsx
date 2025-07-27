@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { addCoffee } from "../utils";
 
 const CoffeeDetails = () => {
   const { id } = useParams();
 
   const data = useLoaderData();
   const [singleCoffee, setSingleCoffee] = React.useState({});
-  console.log(singleCoffee);
 
   const {
     image,
@@ -19,6 +19,12 @@ const CoffeeDetails = () => {
     origin,
     nutrition_info,
   } = singleCoffee || {};
+
+
+  const handelAddCoffee = (coffee)=>{
+    addCoffee(coffee)
+  }
+
 
   useEffect(() => {
     const singleData = [...data].find((coffee) => coffee.id === parseInt(id));
@@ -76,7 +82,7 @@ const CoffeeDetails = () => {
               </ul>
             </div>
 
-            <button className="btn btn-warning text-black">Get Started</button>
+            <button className="btn btn-warning text-black" onClick={()=> handelAddCoffee(singleCoffee)}>Get Started</button>
           </div>
         </div>
       </div>
